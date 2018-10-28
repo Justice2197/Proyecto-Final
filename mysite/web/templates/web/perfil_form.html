@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+<head>
+<!--Materialize-->
+<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Estilo CSS-->
+<link rel="stylesheet" href='{% static "css/Estilo2.css" %}'>
+{% block title %}Registrarse{% endblock %}
+</head>
+<body>
+{% block content %}
+<header>
+	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
+</header>
+{% if user.is_authenticated %}
+    <h1>Hola {{ user.username }}</h1>
+	<a href="{% url 'sign_out' %}">Cerrar sesión</a>
+{% else %}
+<nav class="nav-extended">
+<div class="nav-wrapper">
+	</div>
+<div class="nav-content">
+		<ul class="topnav">
+		<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a>
+		<li class="tab"><a href="#test2">Quienes Somos</a></li>
+		<li class="tab"><a href="#test3">Servicios</a></li>
+		<li class="tab"></a><a href="#test4">Contáctanos</a></li>
+		<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+		<li class="tab"><a href="{% url 'sign_in' %}">Iniciar sesión</a></li>
+		</ul>
+</div>
+</nav>
+{% endif %}
+<div id="Formulario" class="row">
+    <form class="col s12">
+    <div class="row">
+    <div class="input-field col s6">
+        <input id="rut" type="text" class="validate" onblur="validarRut()">
+        <label for="rut">Rut</label>
+    </div>
+<div class="input-field col s7">
+    <input id="name" type="text" class="validate" onblur="validarNombre()">
+    <label for="name">Nombre Completo</label>
+</div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input id="date" type="date" class="datepicker" onblur="validarFecha()">
+            <label for="date">Fecha de Nacimiento</label>  
+        </div>
+    <div class="row">
+        <div class="input-field col s7">
+            <input id="phone" type="tel" class="validate" onblur="validarTelefono()">
+            <label for="phone">Teléfono</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input id="mail" type="email" class="validate" onblur="validarCorreo()">
+            <label for="mail">Email</label>
+        </div>
+    </div>
+                       
+    <div id="region" class="input-field col s12" onblur="validarRegion()">
+        <select>
+        <option value="" disabled selected>Elegir una opción</option>
+        <option value="1">Región de Arica y Parinacota</option>
+        <option value="2">Regiones de Tarapacá</option>
+        <option value="3">Región de Antofagasta</option>
+        <option value="4">Región de Atacama</option>
+        <option value="5">Región de Coquimbo</option>
+        </select>  
+        <label>Seleccione una region</label>
+    </div>
+                 
+    <div id="ciudad" class="input-field col s12" >
+        <select>
+        <option value="" disabled selected onblur="validarCiudad()">Elegir una opción</option>
+        <option value="1">Arica</option>
+        <option value="2">Pozo Almonte</option>
+        <option value="3">Antofagasta</option>
+        <option value="4">Concepcion</option>
+        <option value="5">Valparaiso</option>
+        </select>  
+        <label>Seleccione una ciudad</label>  
+    </div>
+  
+    <div id="lugar" class="input-field col s12" onblur="validarLugar()">
+        <select>
+        <option value="" disabled selected>Elegir una opción</option>
+        <option value="1">Casa con patio grande</option>
+        <option value="2">Casa con patio pequeño</option>
+        <option value="3">Casa sin patio</option>
+        <option value="4">Departamento</option>
+        </select>     
+        <label>Seleccione una vivienda</label>  
+    </div>
+ </div>
+</div>
+</form>
+</div>
+{% endblock content %}
+<script type="text/javascript" src="{% static 'jquery-3.3.1.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+var elems = document.querySelectorAll('select');
+var instances = M.FormSelect.init(elems, options);});
+$(document).ready(function(){
+$('select').formSelect();});
+</script>
+
+<!--este es-->
+<script>
+   $('select').Material_select();
+</script>
+
+<!--Validación de datos personales-->
+<script type="text/javascript">
+function validarCorreo() {
+    correo = document.getElementById("mail").value;
+    if ( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor))) {
+        return false;
+        document.getElementById("mail").focus();
+        document.getElementById("mail").style.color="red"
+    } 
+    else {
+        document.getElementById("mail").style.color="green"
+    }
+}
+
+function validarRut() {
+    run= document.getElementById("rut").value;
+    var letra=['K'];
+    if ( !(/^\d{8}[A-Z]$/.test(run)) ) {
+        document.getElementById("rut").focus();
+        document.getElementById("rut").style.color="red";
+    } 
+    else {
+        document.getElementById("rut").style.color="green";
+    }
+    if(letra.charAt(8) != letra[(valor.substring(0, 8))%23]) {
+        return false;
+    }
+}
+
+function validarNombre() {
+    nombre = document.getElementById("name").value;
+    if (nombre ==null || nombre.leght==0 || /^\s+$/.test(nombre) ) {
+        document.getElementById("name").focus();
+        document.getElementById("name").style.color="red";
+    } 
+    else {
+        document.getElementById("name").style.color="green";
+    }
+}
+
+function validarFecha(){
+    var fecha = document.getElementById("date").value;
+    if (validarFormatoFecha(fecha)) {
+        if (fechaExiste(fecha)) {
+            alert("La fecha introducida es correcta");
+            document.getElementsByTagName("date").focus();
+            document.getElementById("id_fechaNac").style.color= "green";
+        } 
+        else {
+            alert("La fecha introducida es incorrecta");
+            document.getElementsByTagName("date").focus();
+            document.getElementById("date").style.color= "red";
+        }
+    } 
+    else {
+        alert("El formato de la fecha es incorrecto");
+        document.getElementById("date").style.color= "red";
+    }
+}
+
+function validarFormatoFecha(date){
+    var RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+    if ((id_fechaNac.match(RegExPattern)) && (id_fechaNac!= '')) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
+function fechaExiste(date){
+    var fechaf = id_fechaNac.splint("/");
+    var day = fechaf[0];
+    var month = fechaf[1];
+    var year = fechaf[2];
+    var date = new Date(year, month, '0');
+    if ((day-0)> (date.getDate()-0)) {
+        return false;
+    } else {
+    return true;
+}
+
+function validarTelefono(){
+    fono = document.getElementById("phone").value;
+    if ( !(/^\d{9}$/.test(fono)) ) {
+    document.getElementById("phone").focus();
+    document.getElementById("phone").style.color="red";
+    } 
+    else {
+    document.getElementById("phone").style.color="green";
+    }
+}
+
+</script>
+
+<!--Validaciones de regiones, ciudades y lugares-->
+<script type="text/javascript">
+function validarRegion() {
+    regi = document.getElementById("region").selectedIndex;
+    if (regi== null || regi ==0) {
+        return false;
+    }
+}
+
+function validarCiudad() {
+    ciud =document.getElementById("ciudad").selectedIndex;
+    if (ciud==null || ciud==0) {
+    return false;
+    }
+}
+
+function validarLugar() {
+    luga = document.getElementById("lugar").selectedIndex;
+    if (luga==null || luga==0) {
+        return false;
+    }
+}
+</script>
+<footer>
+	<p>Desarrollo Web y Mobile</p>
+</footer>
+</body>
+</html>

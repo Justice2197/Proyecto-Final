@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+<head>
+<!--Materialize-->
+<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Estilo CSS-->
+<link rel="stylesheet" href='{% static "css/Estilo2.css" %}'>
+{% block title %}Registrarse{% endblock %}
+</head>
+<body>
+{% block content %}
+<header>
+	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
+</header>
+{% if user.is_authenticated %}
+	<h1>Hola {{ user.username }}</h1>
+	<a href="{% url 'sign_out' %}">Cerrar sesión</a>
+{% else %}
+<nav class="nav-extended">
+<div class="nav-wrapper">
+	</div>
+	<div class="nav-content">
+	<ul class="topnav">
+		<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a>
+		<li class="tab"><a href="#test2">Quienes Somos</a></li>
+		<li class="tab"><a href="#test3">Servicios</a></li>
+		<li class="tab"></a><a href="#test4">Contáctanos</a></li>
+		<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+		<li class="tab"><a href="{% url 'sign_in' %}">Iniciar sesión</a></li>
+	</ul>
+</div>
+</nav>
+{% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit">
+    </form>
+ <footer>
+    <p>Desarrollo Web y Mobile</p>
+</footer>
+{% endblock content %}
+</body>
+</html>
