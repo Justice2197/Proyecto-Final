@@ -32,5 +32,8 @@ class SignInView(LoginView):
 class SignOutView(LogoutView):
     pass
 
-class ContactView(TemplateView):
+class InfoView(TemplateView):
     template_name = 'web/quienes_somos.html'
+
+class ContactView(TemplateView):
+    template_name = 'web/contactanos.html'
