@@ -17,12 +17,11 @@
 	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
 </header>
 {% if user.is_authenticated %}
-    <h1>Hola {{ user.username }}</h1>
+    <h3>Hola {{ user.username }}</h3>
 	<a href="{% url 'sign_out' %}">Cerrar sesión</a>
 {% else %}
 <nav class="nav-extended">
 <div class="nav-wrapper">
-</div>
     <div class="nav-content">
 	    <ul class="topnav">
 	    <li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a>
@@ -33,6 +32,7 @@
 	    <li class="tab"><a href="{% url 'sign_in' %}">Iniciar sesión</a></li>
 	    </ul>
     </div>
+</div>
 </nav>
 {% endif %}
 <div id="Formulario" class="row">
