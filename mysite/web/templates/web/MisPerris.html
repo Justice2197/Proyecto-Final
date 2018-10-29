@@ -19,13 +19,12 @@
 </header>
 
 {% if user.is_authenticated %}
-		<h3>Hola {{ user.username }}</h3>
-		<div class="nav-content">
-			<ul class="topnav">
-				<li class="tab"><a href="{% url 'sign_out' %}">Cerrar sesión</a></li>
-			</ul>
-		</div>
-		
+<h3>Hola {{ user.username }}</h3>
+	<div class="nav-content">
+		<ul class="topnav">
+			<li class="tab"><a href="{% url 'sign_out' %}">Cerrar sesión</a></li>
+		</ul>
+	</div>
 {% else %}
 <nav class="nav-extended">
 <div class="nav-wrapper">
