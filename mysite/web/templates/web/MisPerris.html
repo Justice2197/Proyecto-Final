@@ -3,17 +3,16 @@
 {% load staticfiles %}
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<!--Materialize-->
-	<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
-	<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<!--Estilo CSS-->
-	<link rel="stylesheet" href='{% static "css/Estilo.css" %}'>
+<meta charset="utf-8">
+<!--Materialize-->
+<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Estilo CSS-->
+<link rel="stylesheet" href='{% static "css/Estilo.css" %}'>
 </head>
 <body>
 {% block title %}Bievenido{% endblock %}
-
 	{% block content %}
 <header>
 	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
