@@ -37,3 +37,6 @@ class InfoView(TemplateView):
 
 class ContactView(TemplateView):
     template_name = 'web/contactanos.html'
+
+class ServicioView(TemplateView):
+    template_name = 'web/servicios.html'
