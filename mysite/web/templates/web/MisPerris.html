@@ -14,7 +14,7 @@
 <body>
 {% block title %}Bievenido{% endblock %}
 
-{% block content %}
+	{% block content %}
 <header>
 	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
 </header>
@@ -97,7 +97,7 @@
 	<a target="_blank"><img id="Luisa" src='{% static "img/perro8.jpg" %}' alt="luisa"></a>
 </div>
 	<div class="desc">
-		ombre: Luisa.<br>Reseña: Es una perra que le gusta jugar con la ropa, hacer agujeros y esconderla, <br>también, le encanta jugar bajo la lluvia y meterse en el barro.
+		Nombre: Luisa.<br>Reseña: Es una perra que le gusta jugar con la ropa, hacer agujeros y esconderla, <br>también, le encanta jugar bajo la lluvia y meterse en el barro.
 	</div>
 </div>
 			
@@ -177,6 +177,6 @@
 </script>
 {% endif %}
     
-{% endblock content %}
+	{% endblock content %}
 </body>
 </html>
