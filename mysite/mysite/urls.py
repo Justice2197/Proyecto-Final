@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from web.views import SignUpView, BienvenidaView, SignInView, SignOutView
+from web.views import SignUpView, BienvenidaView, SignInView, SignOutView, ContactView
 
 urlpatterns = [
     url('admin/', admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^registrate/$', SignUpView.as_view(), name='sign_up'),
     url(r'^inicia-sesion/$', SignInView.as_view(), name='sign_in'),
     url(r'^cerrar-sesion/$', SignOutView.as_view(), name='sign_out'),
+    url(r'^quienes/$', ContactView.as_view(), name="somos"),
 ]
