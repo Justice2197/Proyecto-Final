@@ -3,13 +3,13 @@
 {% load staticfiles %}
 <html lang="es">
 <head>
-	<!--Materialize-->
-	<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
-	<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<!--Estilo CSS-->
-    <link rel="stylesheet" href='{% static "css/Estilo.css" %}'>
-    <title>{% block title %}Quienes Somos{% endblock %}</title>
+<!--Materialize-->
+<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Estilo CSS-->
+<link rel="stylesheet" href='{% static "css/Estilo.css" %}'>
+<title>{% block title %}Quienes Somos{% endblock %}</title>
 </head>
 <body>
     {% block content %}
@@ -17,8 +17,8 @@
 	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
 </header>
 {% if user.is_authenticated %}
-		<h1>Hola {{ user.username }}</h1>
-		<a href="{% url 'sign_out' %}">Cerrar sesión</a>
+	<h1>Hola {{ user.username }}</h1>
+	<a href="{% url 'sign_out' %}">Cerrar sesión</a>
 {% else %}
 <nav class="nav-extended">
 <div class="nav-wrapper">
@@ -34,6 +34,19 @@
 		</ul>
 </div>
 </nav>
+
+<div>
+	<p>Jefe de Proyecto: Pablo Peña</p>
+	<p>Email: pablo.penag@alumnos.duoc.cl</p>
+	<p>Teléfono: +56 9 7737 4733</p>
+	<br>
+	<p>Desarrollador: Nicolas Vergara</p>
+	<p>Email: nico.vergaral@alumnos.duoc.cl</p>
+	<p>Teléfono: +56 9 5194 8466</p>
+	<br>
+	<p>Profesor: Cristian García</p>
+	<p>Email: crist.garci@profesor.duoc.cl</p>
+</div>
 {% endif %}
     {% endblock content %}
 </body>
