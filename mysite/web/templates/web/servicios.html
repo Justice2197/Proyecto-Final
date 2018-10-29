@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!--Estilo CSS-->
 <link rel="stylesheet" href='{% static "css/Estilo.css" %}'>
-<title>{% block title %}Quienes Somos{% endblock %}</title>
+<title>{% block title %}Servicios{% endblock %}</title>
 </head>
 <body>
     {% block content %}
@@ -34,6 +34,8 @@
 		</ul>
 </div>
 </nav>
+<img src='{% static "img/adopcion.jpg"%}' alt="Adopción" style="width:600px; height:400px;"><br>
+<button style="width:85px;height:40px;">Adopción</button>
 {% endif %}
     {% endblock content %}
 </body>
