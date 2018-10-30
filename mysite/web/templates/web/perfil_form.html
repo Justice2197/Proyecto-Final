@@ -44,35 +44,11 @@
 </div>
 </nav>
 {% endif %}
-<div id="Formulario" class="row">
-    <form class="col s12">
-    <div class="row">
-    <div class="input-field col s6">
-        <input id="rut" type="text" class="validate" onblur="validarRut()">
-        <label for="rut">Rut</label>
-    </div>
-<div class="input-field col s7">
-    <input id="name" type="text" class="validate" onblur="validarNombre()">
-    <label for="name">Nombre Completo</label>
-</div>
-    <div class="row">
-        <div class="input-field col s6">
-            <input id="date" type="date" class="datepicker" onblur="validarFecha()">
-            <label for="date">Fecha de Nacimiento</label>  
-        </div>
-    <div class="row">
-        <div class="input-field col s7">
-            <input id="phone" type="tel" class="validate" onblur="validarTelefono()">
-            <label for="phone">Teléfono</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6">
-            <input id="mail" type="email" class="validate" onblur="validarCorreo()">
-            <label for="mail">Email</label>
-        </div>
-    </div>
-                       
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit">
+</form>                
     <div id="region" class="input-field col s12" onblur="validarRegion()">
         <select>
         <option value="" disabled selected>Elegir una opción</option>
