@@ -49,44 +49,6 @@
     {{ form.as_p }}
     <input type="submit" name="submit">
 </form>                
-    <div id="region" class="input-field col s12" onblur="validarRegion()">
-        <select>
-        <option value="" disabled selected>Elegir una opción</option>
-        <option value="1">Región de Arica y Parinacota</option>
-        <option value="2">Regiones de Tarapacá</option>
-        <option value="3">Región de Antofagasta</option>
-        <option value="4">Región de Atacama</option>
-        <option value="5">Región de Coquimbo</option>
-        </select>  
-        <label>Seleccione una region</label>
-    </div>
-                 
-    <div id="ciudad" class="input-field col s12" >
-        <select>
-        <option value="" disabled selected onblur="validarCiudad()">Elegir una opción</option>
-        <option value="1">Arica</option>
-        <option value="2">Pozo Almonte</option>
-        <option value="3">Antofagasta</option>
-        <option value="4">Concepcion</option>
-        <option value="5">Valparaiso</option>
-        </select>  
-        <label>Seleccione una ciudad</label>  
-    </div>
-  
-    <div id="lugar" class="input-field col s12" onblur="validarLugar()">
-        <select>
-        <option value="" disabled selected>Elegir una opción</option>
-        <option value="1">Casa con patio grande</option>
-        <option value="2">Casa con patio pequeño</option>
-        <option value="3">Casa sin patio</option>
-        <option value="4">Departamento</option>
-        </select>     
-        <label>Seleccione una vivienda</label>  
-    </div>
- </div>
-</div>
-</form>
-</div>
 {% endblock content %}
 <script type="text/javascript" src="{% static 'jquery-3.3.1.min.js' %}"></script>
 
