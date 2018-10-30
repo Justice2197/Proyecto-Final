@@ -18,7 +18,7 @@ class SignUpView(CreateView):
         nacimiento = form.cleaned_data.get('nacimiento')
         telefono = form.cleaned_data.get('telefono')
         email = form.cleaned_data.get('email')
-        password = form.cleaned_data('password1')
+        password = form.cleaned_data.get('password1')
         usuario = authenticate(username = usuario, password=password)
         login(self.request, usuario)
         return redirect('/')
