@@ -21,6 +21,11 @@ class SignUpView(CreateView):
         password = form.cleaned_data.get('password1')
         usuario = authenticate(username = usuario, password=password)
         login(self.request, usuario)
+        obj = Perfil.objects.create(rut = rut,
+        nombres = nombres,
+        apellidos = apellidos,
+        nacimiento = nacimiento,
+        email = email)
         return render(request, 'web/MisPerris.html', {})
 
 class BienvenidaView(TemplateView):
