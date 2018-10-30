@@ -10,6 +10,9 @@ class SignUpView(CreateView):
     model = Perfil
     form_class = SignUpForm
     def form_valid(self, form):
+        context = {
+            "form":form
+        }
         form.save()
         usuario = form.cleaned_data.get('username')
         rut = form.cleaned_data.get('rut')
@@ -21,7 +24,13 @@ class SignUpView(CreateView):
         password = form.cleaned_data.get('password1')
         usuario = authenticate(username = usuario, password=password)
         login(self.request, usuario)
-        return render(request, 'web/MisPerris.html', {})
+        obj = Perfil.objects.create(rut = rut,
+        nombres = nombres,
+        apellidos = apellidos,
+        nacimiento = nacimiento,
+        telefono = telefono,
+        email = email)
+        return render(request, 'web/MisPerris.html', context)
 
 class BienvenidaView(TemplateView):
     template_name = 'web/MisPerris.html'
