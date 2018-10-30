@@ -21,7 +21,7 @@ class SignUpView(CreateView):
         password = form.cleaned_data.get('password1')
         usuario = authenticate(username = usuario, password=password)
         login(self.request, usuario)
-        return redirect('/')
+        return render(request, 'web/MisPerris.html', {})
 
 class BienvenidaView(TemplateView):
     template_name = 'web/MisPerris.html'
