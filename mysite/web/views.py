@@ -10,7 +10,7 @@ class SignUpView(CreateView):
     model = Perfil
     form_class = SignUpForm
     def form_valid(self, form):
-        form_save()
+        form.save()
         usuario = form.cleaned_data.get('username')
         rut = form.cleaned_data.get('rut')
         nombres = form.cleaned_data.get('nombres')
